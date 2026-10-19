@@ -1,0 +1,32 @@
+{
+  "full_name": "snakers4/silero-vad",
+  "stargazers_count": 10448,
+  "forks_count": 874,
+  "open_issues_count": 16,
+  "pushed_at": "2026-09-29T10:20:28Z",
+  "archived": false,
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit",
+    "node_id": "MDc6TGljZW5zZTEz"
+  },
+  "commits": [
+    {
+      "sha": "1e261b036686cd0017d500ee96acd1c4ba572a9d",
+      "date": "2026-09-29T10:20:28Z",
+      "message": "Merge pull request #805 from avionicharshit-byte/vaditerator-neg-threshold"
+    },
+    {
+      "sha": "e05462c9c7fb1059d6dbb432ec8ebc0242e38fe5",
+      "date": "2026-09-29T10:20:14Z",
+      "message": "Merge pull request #807 from MohammadHijjawi97/fix-sequence-multichannel"
+    },
+    {
+      "sha": "f0225db402bd6fd13fa909ebf195f9451e8febcf",
+      "date": "2026-09-29T10:19:48Z",
+      "message": "Merge pull request #806 from MohammadHijjawi97/fix-collect-chunks-empty"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "full_name": "Rikorose/DeepFilterNet",
+  "stargazers_count": 4834,
+  "forks_count": 534,
+  "open_issues_count": 67,
+  "pushed_at": "2024-10-17T08:35:11Z",
+  "archived": false,
+  "license": {
+    "key": "other",
+    "name": "Other",
+    "spdx_id": "NOASSERTION",
+    "url": null,
+    "node_id": "MDc6TGljZW5zZTA="
+  },
+  "commits": [
+    {
+      "sha": "d375b2d8309e0935d165700c91da9de862a99c31",
+      "date": "2024-10-17T08:35:10Z",
+      "message": "channel"
+    },
+    {
+      "sha": "8c2a464b464d87106e7b7d54ba7c2b0bca851a40",
+      "date": "2024-10-17T08:35:10Z",
+      "message": "Fixed rust capi RuntimeParams default value."
+    },
+    {
+      "sha": "f1d19bffbeccd98a616f23c89903a2386a1d1dba",
+      "date": "2024-05-06T10:49:00Z",
+      "message": "pydf: Bump MSRV to 1.70"
+    }
+  ]
+}

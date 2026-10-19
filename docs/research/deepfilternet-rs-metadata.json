@@ -1,0 +1,26 @@
+{
+  "full_name": "di-osc/DeepFilterNet-rs",
+  "stargazers_count": 2,
+  "forks_count": 0,
+  "open_issues_count": 0,
+  "pushed_at": "2026-05-13T22:26:01Z",
+  "archived": false,
+  "license": null,
+  "commits": [
+    {
+      "sha": "1462af0ad1a12400c4c486953b3877ab0ce054b5",
+      "date": "2026-05-13T22:25:56Z",
+      "message": "docs: update README with streaming API usage and input requirements"
+    },
+    {
+      "sha": "01ae79f78bf35608b47d081c8982a5d3464b58f8",
+      "date": "2026-05-13T22:20:15Z",
+      "message": "chore: bump version to 0.1.1"
+    },
+    {
+      "sha": "55c0bc4b1c892e54cc80d58aa528a52fad06cd3f",
+      "date": "2026-05-13T22:08:21Z",
+      "message": "Move default model to Python package"
+    }
+  ]
+}

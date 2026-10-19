@@ -1,0 +1,32 @@
+{
+  "full_name": "xiph/rnnoise",
+  "stargazers_count": 5897,
+  "forks_count": 1082,
+  "open_issues_count": 207,
+  "pushed_at": "2025-02-22T23:58:31Z",
+  "archived": false,
+  "license": {
+    "key": "bsd-3-clause",
+    "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+    "spdx_id": "BSD-3-Clause",
+    "url": "https://api.github.com/licenses/bsd-3-clause",
+    "node_id": "MDc6TGljZW5zZTU="
+  },
+  "commits": [
+    {
+      "sha": "70f1d256acd4b34a572f999a05c87bf00b67730d",
+      "date": "2025-02-22T23:58:18Z",
+      "message": "Remove outdated TRAINING-README"
+    },
+    {
+      "sha": "f6662ad41f5bf7bf244967a04e95334c81e5af4c",
+      "date": "2025-02-01T21:04:30Z",
+      "message": "List all export library symbols at the end of the build."
+    },
+    {
+      "sha": "c93d8aeee9a0808e8e8ed46340b7e6776194b129",
+      "date": "2025-02-01T20:29:26Z",
+      "message": "Fix -Wstrict-prototypes"
+    }
+  ]
+}
