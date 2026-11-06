@@ -26,7 +26,8 @@
 | 구성요소 | 상태 |
 |---|---|
 | deepfilternet-rs (`[deepfilter]` extra) | 래퍼에 LICENSE 파일이 없고 GitHub 라이선스가 비어 있음(PyPI 는 MIT 표기). **제품 배포물에 포함하지 않는다.** 상위 DeepFilterNet 은 MIT 또는 Apache-2.0 |
-| faster-whisper, scipy, soundfile, pytest (`[test]` extra) | 테스트 전용. `requirements-validation.lock` 환경(PyAV 등 FFmpeg 번들 패키지 포함)을 제품에 가져가지 않는다 |
+| scipy, soundfile, pytest (`[test]` extra) | 테스트 전용. 제품 배포물에 포함하지 않는다 |
+| faster-whisper (`[asr-eval]` extra) | 전사 비교(`scripts/benchmark.py --asr-model`) 전용. 의존하는 PyAV(`av`)의 wheel 이 FFmpeg 와 함께 **libx264·libx265(GPL)를 번들**한다(번들 libavcodec 은 LGPL 3+ 로 표시되어 라이선스 상태 미확정). 이 extra 와 `requirements-validation.lock` 환경은 평가 전용이며 앱·wheel 에 넣지 않는다 |
 
 ## 리샘플러
 

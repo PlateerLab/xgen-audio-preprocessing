@@ -19,7 +19,7 @@ source "$HOME/.local/share/xgen-audio/0.1.1/env.sh"
 Silero 모델 6.2.1은 패키지에 포함되고 로드 전에 SHA-256을 검사합니다. 실행 중 모델을 자동 다운로드하지 않습니다. RNNoise 소스와 모델은 설치할 때 고정된 해시로 다운로드·빌드합니다.
 DeepFilterNet은 실험용 optional extra이며 기본 설치에서 제외합니다. 선택한 필터가 없으면 명확하게 실패하며 다른 필터로 조용히 전환하지 않습니다.
 
-소스 개발용 editable 설치나 로컬 Whisper 평가가 필요한 경우에만 별도 개발 환경에서 `pip install -e '.[test,deepfilter]'`를 사용하세요. 기본 설치 경로의 환경을 재사용하지 마세요.
+소스 개발용 editable 설치나 로컬 Whisper 평가가 필요한 경우에만 별도 개발 환경에서 `pip install -e '.[test,deepfilter]'`를 사용하세요. 로컬 Whisper 전사 비교(`--asr-model`)가 필요하면 `asr-eval` extra를 추가하세요(`faster-whisper`와 FFmpeg를 번들한 PyAV가 설치되므로 평가 전용 환경에서만 쓰고, 제품 배포물에는 포함하지 않습니다). 기본 설치 경로의 환경을 재사용하지 마세요.
 
 ## Python API
 
@@ -69,7 +69,7 @@ export XGEN_RNNOISE_LIBRARY="$PWD/.local/rnnoise/librnnoise.dylib"
 .venv/bin/python scripts/fetch_samples.py
 .venv/bin/python scripts/benchmark.py --data artifacts/samples --backend rnnoise --output artifacts/rnnoise
 .venv/bin/python scripts/benchmark.py --data artifacts/samples --backend deepfilter --output artifacts/deepfilter
-# 실제 전사 비교는 --asr-model /path/to/local/faster-whisper-small 추가
+# 실제 전사 비교는 `pip install -e '.[asr-eval]'` 후 --asr-model /path/to/local/faster-whisper-small 추가
 # requirements-validation.lock은 이번 macOS Python 3.11 실험의 정확한 패키지 버전 기록
 ```
 
