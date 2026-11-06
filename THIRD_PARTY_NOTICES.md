@@ -12,14 +12,14 @@
 
 | 구성요소 | 라이선스 | 원문 위치 | 비고 |
 |---|---|---|---|
-| RNNoise (소스 + 공식 모델 weights) | BSD-3-Clause | `src/xgen_audio/licenses/RNNoise-COPYING.txt` | `scripts/build_rnnoise.py`가 고정 커밋·해시로 빌드. 빌드한 `librnnoise`를 앱에 함께 배포하면 이 고지를 같이 넣을 것 |
+| RNNoise (소스 + 공식 모델 weights) | BSD-3-Clause (소스 `COPYING` 은 동봉본과 동일함을 확인. weights 압축본에는 별도 라이선스 파일이 없다. 업스트림 README 는 배포 모델이 공개 데이터셋(`datasets.txt`)만으로 학습됐다고 밝히는데, 그 OpenSLR 데이터셋 27종의 라이선스를 각 페이지에서 확인한 결과 26종이 **CC BY-SA 4.0**, hi_fi_tts 1종이 CC BY 4.0 이다(2026-11-06). 학습 가중치가 이 데이터의 파생물로서 ShareAlike 의무를 지는지는 이 문서가 판단하지 않으며, Xiph 는 weights 를 저장소와 같은 BSD-3 로 배포한다. 노이즈 학습 데이터(Xiph 제공)는 확인하지 않음) | `src/xgen_audio/licenses/RNNoise-COPYING.txt` | `scripts/build_rnnoise.py`가 고정 커밋·해시로 빌드. 빌드한 `librnnoise`를 앱에 함께 배포하면 이 고지를 같이 넣을 것 |
 
 ## 의존성 (pip 이 설치)
 
 | 구성요소 | 라이선스 | 비고 |
 |---|---|---|
-| numpy | BSD-3-Clause | wheel 에 OpenBLAS 등 번들 고지 포함. 런타임을 앱에 묶어 배포하면 해당 고지를 유지 |
-| onnxruntime | MIT | wheel 에 third-party 고지 포함. 위와 동일 |
+| numpy | BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0 (2.4.6 wheel 메타데이터) | 2.4.6 cp311 wheel 의 파일 목록과 `LICENSE.txt` 를 확인(2026-11-06): **Linux x86_64(manylinux·musllinux)와 macOS 11+ x86_64/arm64 wheel 은 libquadmath(LGPL-2.1+)를 번들**하고, Linux aarch64·musllinux 는 libgfortran/libgcc/libstdc++(GPL-3.0+ WITH GCC-exception)를 번들한다. Windows amd64/arm64 wheel 은 OpenBLAS(BSD-3)와 MSVC 런타임(msvcp140.dll)만 번들하며 LGPL 라이브러리는 없다. macOS 14+ wheel(Accelerate 사용)과 win32 는 번들 라이브러리가 없다. 런타임을 앱에 묶어 배포하면 wheel 의 `LICENSE.txt` 전체를 유지하고 번들 라이브러리를 교체 가능하게 둔다 |
+| onnxruntime | MIT (1.31.0 확인) | wheel 에 `LICENSE`, `ThirdPartyNotices.txt` 포함. 앱에 묶어 배포하면 두 파일을 유지 |
 
 ## 선택 extra / 개발 전용 (배포 대상 아님)
 

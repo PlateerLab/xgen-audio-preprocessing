@@ -90,5 +90,5 @@ export XGEN_RNNOISE_LIBRARY="$PWD/.local/rnnoise/librnnoise.dylib"
 
 **Apache License 2.0** — [LICENSE](LICENSE) / [NOTICE](NOTICE) 참조. 재배포 시 저작권·라이선스 고지와 `NOTICE`를 유지해야 합니다.
 
-- 제3자 구성요소(Silero VAD 모델 MIT, RNNoise BSD-3-Clause, numpy BSD, onnxruntime MIT)의 고지는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)에 정리했습니다. 리샘플러는 자체 구현이라 LGPL 의존성이 없습니다.
+- 제3자 구성요소(Silero VAD 모델 MIT, RNNoise BSD-3-Clause, numpy BSD, onnxruntime MIT)의 고지는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)에 정리했습니다. 리샘플러는 자체 구현이라 이 프로젝트가 직접 의존하는 LGPL 라이브러리는 없습니다. 다만 numpy 의 Linux·macOS(11+) wheel 은 libquadmath(LGPL-2.1+) 등 GCC 런타임을 동적 라이브러리로 번들하므로(Windows wheel 은 LGPL 라이브러리 없음), 런타임을 앱에 묶어 배포할 때는 numpy 의 `LICENSE.txt` 를 함께 유지하세요.
 - 테스트용 음성 파일은 저장소에 포함하지 않습니다.
