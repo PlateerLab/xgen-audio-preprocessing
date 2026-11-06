@@ -18,7 +18,7 @@ async def main():
     parser.add_argument('--model-repo',type=Path,required=True)
     parser.add_argument('--base-url',required=True)
     parser.add_argument('--wav',type=Path,required=True)
-    parser.add_argument('--backend',choices=['none','rnnoise','deepfilter'],default='none')
+    parser.add_argument('--backend',choices=['none','rnnoise'],default='none')
     parser.add_argument('--output',type=Path,required=True)
     args=parser.parse_args()
     sys.path.insert(0,str(args.model_repo.resolve()))

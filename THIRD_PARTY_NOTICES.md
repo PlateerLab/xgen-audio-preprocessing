@@ -25,7 +25,6 @@
 
 | 구성요소 | 상태 |
 |---|---|
-| deepfilternet-rs (`[deepfilter]` extra) | 래퍼에 LICENSE 파일이 없고 GitHub 라이선스가 비어 있음(PyPI 는 MIT 표기). **제품 배포물에 포함하지 않는다.** 상위 DeepFilterNet 은 MIT 또는 Apache-2.0 |
 | scipy, soundfile, pytest (`[test]` extra) | 테스트 전용. 제품 배포물에 포함하지 않는다 |
 | faster-whisper (`[asr-eval]` extra) | 전사 비교(`scripts/benchmark.py --asr-model`) 전용. 의존하는 PyAV(`av`)의 wheel 이 FFmpeg 와 함께 **libx264·libx265(GPL)를 번들**한다(번들 libavcodec 은 LGPL 3+ 로 표시되어 라이선스 상태 미확정). 이 extra 와 `requirements-validation.lock` 환경은 평가 전용이며 앱·wheel 에 넣지 않는다 |
 
@@ -35,4 +34,4 @@
 
 ## 테스트 데이터
 
-음성 WAV 는 저장소와 wheel 에 포함하지 않는다. 비교에 쓴 DeepFilterNet 샘플 중 CC BY-NC 3.0(`clean33711`)은 번들에서 제외했고, CC BY 3.0(noise2530)은 출처 표기를 유지한다. 자세한 내용은 [docs/RESEARCH.md](docs/RESEARCH.md).
+음성 WAV 는 저장소와 wheel 에 포함하지 않는다. 비교에 쓴 Rikorose/DeepFilterNet 저장소의 샘플 중 CC BY-NC 3.0(`clean33711`)은 번들에서 제외했고, CC BY 3.0(noise2530)은 출처 표기를 유지한다. 자세한 내용은 [docs/RESEARCH.md](docs/RESEARCH.md).

@@ -66,7 +66,7 @@ def main():
     parser.add_argument('--data', type=Path, required=True)
     parser.add_argument('--output', type=Path, default=Path('artifacts/benchmark'))
     parser.add_argument('--asr-model', type=Path)
-    parser.add_argument('--backend', default='rnnoise', choices=['rnnoise', 'deepfilter'])
+    parser.add_argument('--backend', default='rnnoise', choices=['rnnoise'])
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     model = None

@@ -25,21 +25,11 @@ class AudioPreprocessor:
     def __init__(self, sample_rate: int = 16000, *, denoise: str = "none", vad: bool = True, library: str | None = None):
         if sample_rate not in (16000, 48000):
             raise ValueError('Input must be 16000 or 48000 Hz mono PCM16LE')
-        if denoise not in ('none', 'rnnoise', 'deepfilter'):
-            raise ValueError('denoise must be none, rnnoise, or deepfilter')
+        if denoise not in ('none', 'rnnoise'):
+            raise ValueError('denoise must be none or rnnoise')
         self.sample_rate = sample_rate
         self.vad = SileroVadSegmenter(16000) if vad else None
         self._noise = RNNoise(library) if denoise == "rnnoise" else None
-        self._df = None
-        if denoise == "deepfilter":
-            try:
-                from deepfilternet_rs import DeepFilterNetRealtime
-            except ImportError as exc:
-                raise RuntimeError('Install xgen-audio-preprocessing[deepfilter] with Python 3.11/3.12') from exc
-            from importlib.metadata import version
-            if version('deepfilternet-rs') != '0.1.1':
-                raise RuntimeError('DeepFilterNet drain compensation requires deepfilternet-rs==0.1.1')
-            self._df = DeepFilterNetRealtime(compensate_delay=True, log_level="error")
         internal_rate = 48000 if denoise != "none" else 16000
         self._up = Resampler(sample_rate, internal_rate) if sample_rate != internal_rate else None
         self._down = Resampler(48000, 16000) if denoise != "none" else None
@@ -53,13 +43,6 @@ class AudioPreprocessor:
     def _filtered(self, x: np.ndarray, final: bool = False) -> np.ndarray:
         if self._up is not None:
             x = self._up.resample_chunk(x, last=final)
-        if self._df is not None:
-            y = self._df.process_chunk(x / 32768) if len(x) else np.empty(0, dtype=np.float32)
-            if final:
-                # v0.1.1 finalize omits the DFN3 delay: (960-480)+2*480.
-                tail = self._df.process_chunk(np.zeros(1440, dtype=np.float32))
-                y = np.concatenate((y, tail, self._df.finalize()))
-            return self._down.resample_chunk(y * 32768, last=final) if len(y) or final else y
         if self._noise is None:
             return x
         x = np.concatenate((self._pending, x))
@@ -115,8 +98,6 @@ class AudioPreprocessor:
         self._finished = True
         if self._noise:
             self._noise.close()
-        if self._df is not None:
-            self._df.close()
 
     def __enter__(self):
         return self

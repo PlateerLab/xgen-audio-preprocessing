@@ -1,7 +1,7 @@
 # 개발자 설치와 DEX 연결
 
 이 문서는 사내 개발자용이다. 공개 패키지 저장소에 게시하거나 DEX 설치 파일에 번들하는 절차는 아니다.
-폴더 이름은 `xgen-audio-preprecessing`, Python 패키지 이름은 `xgen-audio-preprocessing`, import는 `xgen_audio`다.
+폴더 이름과 Python 패키지 이름은 `xgen-audio-preprocessing`, import는 `xgen_audio`다.
 
 ## 준비
 
@@ -16,8 +16,8 @@
 전달받은 소스 압축을 풀고 해당 폴더에서 실행한다. wheel 하나만 전달하면 RNNoise 빌드 스크립트가 없으므로 이 설치 절차에는 **소스 묶음**을 사용한다.
 
 ```sh
-python3.11 scripts/install.py --target "$HOME/.local/share/xgen-audio/0.1.1"
-source "$HOME/.local/share/xgen-audio/0.1.1/env.sh"
+python3.11 scripts/install.py --target "$HOME/.local/share/xgen-audio/0.1.2"
+source "$HOME/.local/share/xgen-audio/0.1.2/env.sh"
 ```
 
 설치기는 기존 target이 있으면 중단한다. 기존 환경에 덮어쓰지 않는다. 업그레이드/재설치에는 새 경로를 지정한다.
@@ -33,14 +33,14 @@ source "$HOME/.local/share/xgen-audio/0.1.1/env.sh"
 `env.sh`는 `DEX_AUDIO_ROOT`, `DEX_AUDIO_PYTHON`, `XGEN_RNNOISE_LIBRARY`를 설정한다. 경로에 공백이 있어도 사용할 수 있다.
 설치된 패키지는 소스 폴더 없이 실행할 수 있지만 **Python 본체는 계속 필요**하다. `.venv`를 다른 PC에 복사하거나 target을 이동하지 말고 각 PC에서 설치한다.
 의존성은 `pyproject.toml` 범위에서 설치 시 해결되므로 향후 버전이 달라질 수 있다. 실행 환경의 정확한 버전은 생성된 `installed-requirements.txt`로 확인한다.
-DeepFilterNet과 로컬 Whisper 평가 도구는 설치하지 않는다. DEX의 RNNoise/Silero 연결에 필요하지 않다.
+로컬 Whisper 평가 도구는 설치하지 않는다. DEX의 RNNoise/Silero 연결에 필요하지 않다.
 
 ## DEX 실행
 
 DEX 오디오 연결 코드가 포함된 버전에서 실행한다. `env.sh`는 **앱을 시작하는 터미널**에서 읽어야 한다. 이미 실행 중인 앱에는 적용되지 않는다.
 
 ```sh
-source "$HOME/.local/share/xgen-audio/0.1.1/env.sh"
+source "$HOME/.local/share/xgen-audio/0.1.2/env.sh"
 cd /path/to/xgen-dex-core/apps/desktop
 npm run dev
 ```
@@ -61,8 +61,8 @@ DEX의 Node 의존성이 설치되어 있어야 하며 `DEX_PROFILE`을 사용�
 아래 `AUDIO_SOURCE`는 압축을 푼 소스 폴더의 절대 경로로 바꾼다.
 
 ```sh
-source "$HOME/.local/share/xgen-audio/0.1.1/env.sh"
-AUDIO_SOURCE=/path/to/xgen-audio-preprecessing
+source "$HOME/.local/share/xgen-audio/0.1.2/env.sh"
+AUDIO_SOURCE=/path/to/xgen-audio-preprocessing
 cd /path/to/xgen-dex-core/apps/desktop
 
 # 실제 DEX AudioProcessor + VoiceStreamHub, WS 4회 및 파일 STT 4회

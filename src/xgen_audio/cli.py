@@ -12,7 +12,7 @@ from .stream import AudioPreprocessor
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--sample-rate', type=int, choices=(16000, 48000), default=16000)
-    parser.add_argument('--denoise', choices=('none', 'rnnoise', 'deepfilter'), default='none')
+    parser.add_argument('--denoise', choices=('none', 'rnnoise'), default='none')
     parser.add_argument('--events', action='store_true')
     parser.add_argument('--no-vad', action='store_true')
     parser.add_argument('--jsonl', action='store_true', help='Bounded request/reply PCM protocol for DEX')

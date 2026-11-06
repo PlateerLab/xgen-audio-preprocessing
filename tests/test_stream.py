@@ -65,21 +65,6 @@ def test_noise_only_has_no_vad_events():
     raw = np.random.default_rng(42).normal(0, 104, 16000*6).astype('<i2').tobytes()
     assert run(raw)[1] == []
 
-@pytest.mark.parametrize('sr', [16000, 48000])
-@pytest.mark.parametrize('n', [0, 1, 160, 161, 1024, 16017])
-def test_deepfilter_drain_and_chunk_invariance(sr, n):
-    pytest.importorskip('deepfilternet_rs')
-    raw = np.random.default_rng(9).integers(-2000, 2000, n, dtype='<i2').tobytes()
-    outputs = []
-    for size in [333, 2048]:
-        with AudioPreprocessor(sr, denoise='deepfilter') as stream:
-            output = b''.join(stream.push(raw[i:i+size]).pcm for i in range(0,len(raw),size))
-            output += stream.finish().pcm
-            assert len(output) == ((n*16000+sr//2)//sr)*2
-            outputs.append(output)
-    assert outputs[0] == outputs[1]
-
-
 def test_explicit_backend_and_missing_library():
     with pytest.raises(ValueError):
         AudioPreprocessor(denoise='unknown')

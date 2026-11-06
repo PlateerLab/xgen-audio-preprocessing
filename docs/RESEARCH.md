@@ -1,5 +1,7 @@
 # 후보 조사와 상업 사용 조건
 
+> 갱신: DeepFilterNet-rs(래퍼 라이선스 불명확)는 지원 대상에서 **제거**했다. 아래 DeepFilterNet 관련 내용은 조사 당시 기록이며, `deepfilter` 옵션과 `[deepfilter]` extra는 더 이상 없다.
+
 조회: 2026-10-16~17 KST. GitHub API 응답은 `research/*-metadata.json`에 보관했다. 아래 숫자는 조사 시점이며, open_issues_count에는 PR도 포함된다.
 
 | 후보 | stars / forks | 최근 기본 브랜치 커밋 | 판단 |
