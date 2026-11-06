@@ -86,3 +86,11 @@ export XGEN_RNNOISE_LIBRARY="$PWD/.local/rnnoise/librnnoise.dylib"
 ## 테스트 음성 준비
 
 음성 WAV는 저장소에 포함하지 않습니다. 음성을 사용하는 테스트·벤치마크·STT 검증 전 [로컬 샘플 준비 안내](tests/fixtures/README.md)를 확인하세요.
+
+## 라이선스
+
+**Apache License 2.0** — [LICENSE](LICENSE) / [NOTICE](NOTICE) 참조. 재배포 시 저작권·라이선스 고지와 `NOTICE`를 유지해야 합니다.
+
+- 제3자 구성요소(Silero VAD 모델 MIT, RNNoise BSD-3-Clause, numpy BSD, onnxruntime MIT)의 고지는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)에 정리했습니다. 리샘플러는 자체 구현이라 LGPL 의존성이 없습니다.
+- DeepFilterNet-rs(`[deepfilter]` extra)는 래퍼의 라이선스가 확정되지 않아 제품 배포 대상에서 제외합니다.
+- 테스트용 음성 파일은 저장소에 포함하지 않습니다.

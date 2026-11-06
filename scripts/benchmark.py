@@ -12,14 +12,14 @@ import time
 
 import numpy as np
 import soundfile as sf
-import soxr
+from scipy.signal import resample_poly
 from xgen_audio import AudioPreprocessor
 
 
 def load(path):
     x, sr = sf.read(path, dtype='float32', always_2d=True)
     x = x.mean(axis=1)
-    return soxr.resample(x, sr, 16000) if sr != 16000 else x
+    return resample_poly(x, 16000 // np.gcd(sr, 16000), sr // np.gcd(sr, 16000)).astype('float32') if sr != 16000 else x
 
 
 def cer(ref, hyp):

@@ -1,0 +1,12 @@
+xgen-audio-preprocessing
+Copyright 2026 PlateerLab
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This product includes the streaming Silero VAD implementation extracted from
+the XGEN model repository (backend/asr_streaming/silero_vad.py); see
+docs/PROVENANCE.md.
+
+This product bundles or builds against third-party software under their own
+licenses. See THIRD_PARTY_NOTICES.md and the files in src/xgen_audio/licenses/
+and src/xgen_audio/models/ for the full texts.

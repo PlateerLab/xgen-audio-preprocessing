@@ -26,7 +26,7 @@ macOS ARM64, Python 3.11.16에서 실행했다. 기존 라이브러리 `.venv`, 
 ## 설치된 버전
 
 - xgen-audio-preprocessing 0.1.1
-- numpy 2.4.6, onnxruntime 1.31.0, soxr 1.1.0
+- numpy 2.4.6, onnxruntime 1.31.0, soxr 1.1.0 (당시 검증 환경 기록. 이후 soxr 은 자체 리샘플러로 교체되어 더 이상 필요 없음)
 - flatbuffers 25.12.19, packaging 26.3, protobuf 7.36.2
 - RNNoise 커밋: `70f1d256acd4b34a572f999a05c87bf00b67730d`
 

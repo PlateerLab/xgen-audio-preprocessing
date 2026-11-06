@@ -25,7 +25,7 @@ DeepFilterNet-rs는 Python3.10~3.12의 macOS arm64/Linux x86_64/Windows x86_64 w
 - RNNoise: [공식 COPYING](https://github.com/xiph/rnnoise/blob/70f1d256acd4b34a572f999a05c87bf00b67730d/COPYING)과 소스별 고지 보존. 상업 사용 가능한 BSD 계열 조건. 기본 배포 모델의 공식 SHA-256을 검증한다. 제3자 임의 학습 weights는 사용하지 않는다.
 - DeepFilterNet upstream: [MIT/Apache 선택](https://github.com/Rikorose/DeepFilterNet/blob/main/LICENSE). 다만 **DeepFilterNet-rs wheel/sdist에 LICENSE 파일이 없고 GitHub API license=null**이었다. [PyPI MIT 선언](https://pypi.org/project/deepfilternet-rs/)만으로 전체 재배포 고지가 완비됐다고 판단하지 않는다. 실험 설치는 해두었지만 제품 배포 전 래퍼와 내장 upstream 소스·모델 고지를 정리해야 한다. 이것이 default로 채택하지 않은 추가 이유다.
 - numpy/onnxruntime는 설치 패키지의 BSD/MIT 및 번들 고지를 유지한다.
-- **soxr1.1.0은 LGPL-2.1-or-later**이다. 상업 사용 자체가 금지되는 라이선스는 아니지만 배포 시 LGPL 고지·소스 제공/접근·수정본 조건·교체/재링크 등 해당 의무를 충족해야 한다. 폐쇄 Electron 실행 파일로 합칠 경우 배포 방식에 대한 검토가 필요하다. Python wheel 의존성으로 분리했고 관련 원문을 `src/xgen_audio/licenses`에 보관했다. '전체가 MIT/BSD만으로 구성됨'이라는 주장은 하지 않는다.
+- **soxr(LGPL-2.1+)는 제거**했다. 리샘플은 자체 numpy polyphase 구현(`resample.py`)으로 대체해 LGPL 의무를 없앴다(조사 시점과 dist 의 0.1.1 배포물에서는 필수 의존성이었다).
 - 새 XGEN glue 코드에 임의의 공개 OSS 라이선스를 부여하지 않았다. 소유자의 배포 정책을 따르며 제3자 라이선스는 그대로 적용된다.
 
 ## 시험 데이터는 제품 모델과 별개

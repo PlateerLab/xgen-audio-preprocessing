@@ -2,10 +2,10 @@
 from dataclasses import dataclass
 
 import numpy as np
-import soxr
 
 from .denoise import RNNoise
 from .pcm import VadEvent
+from .resample import Resampler
 from .vad import SileroVadSegmenter
 
 
@@ -41,8 +41,8 @@ class AudioPreprocessor:
                 raise RuntimeError('DeepFilterNet drain compensation requires deepfilternet-rs==0.1.1')
             self._df = DeepFilterNetRealtime(compensate_delay=True, log_level="error")
         internal_rate = 48000 if denoise != "none" else 16000
-        self._up = soxr.ResampleStream(sample_rate, internal_rate, 1, dtype='float32', quality='HQ') if sample_rate != internal_rate else None
-        self._down = soxr.ResampleStream(48000, 16000, 1, dtype='float32', quality='HQ') if denoise != "none" else None
+        self._up = Resampler(sample_rate, internal_rate) if sample_rate != internal_rate else None
+        self._down = Resampler(48000, 16000) if denoise != "none" else None
         self._odd = b''
         self._pending = np.empty(0, dtype=np.float32)
         self._skip = RNNoise.delay_samples if denoise == "rnnoise" else 0
@@ -73,7 +73,6 @@ class AudioPreprocessor:
         skip = min(self._skip, len(y))
         self._skip -= skip
         y = y[skip:]
-        # Do not pass empty non-final chunks to libsoxr.
         if len(y) or final:
             return self._down.resample_chunk(y, last=final)
         return y
