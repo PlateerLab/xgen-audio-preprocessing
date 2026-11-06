@@ -69,7 +69,7 @@ export XGEN_RNNOISE_LIBRARY="$PWD/.local/rnnoise/librnnoise.dylib"
 .venv/bin/python scripts/fetch_samples.py
 .venv/bin/python scripts/benchmark.py --data artifacts/samples --backend rnnoise --output artifacts/rnnoise
 .venv/bin/python scripts/benchmark.py --data artifacts/samples --backend deepfilter --output artifacts/deepfilter
-# 실제 전사 비교는 `pip install -e '.[asr-eval]'` 후 --asr-model /path/to/local/faster-whisper-small 추가
+# 실제 전사 비교는 `.venv/bin/python -m pip install -e '.[asr-eval]'` 후 --asr-model /path/to/local/faster-whisper-small 추가
 # requirements-validation.lock은 이번 macOS Python 3.11 실험의 정확한 패키지 버전 기록
 ```
 
